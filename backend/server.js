@@ -22,6 +22,17 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 app.use(loggingMiddleware);
 
+// ─── Remote Logging Endpoint ─────────────────────────────────────
+app.post('/api/logs', (req, res) => {
+    const { level, message, meta } = req.body;
+    if (logger[level]) {
+        logger[level](`[FRONTEND] ${message}`, meta);
+    } else {
+        logger.info(`[FRONTEND] ${message}`, meta);
+    }
+    res.json({ status: 'logged' });
+});
+
 // ─── Routes ──────────────────────────────────────────────────────
 app.use('/api/notifications', notificationRoutes);
 
