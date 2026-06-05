@@ -68,7 +68,7 @@ async function fetchNotifications() {
         return data.notifications || [];
     } catch (error) {
         logger.warn('Failed to fetch from API, using fallback mock data.', { error: error.message });
-        // Fallback Mock Data based on the screenshot
+        // Fallback Mock Data
         return [
             { "ID": "d14...", "Type": "Result", "Message": "mid-sem", "Timestamp": "2026-04-22 17:51:30" },
             { "ID": "b28...", "Type": "Placement", "Message": "CSX Corporation hiring", "Timestamp": "2026-04-22 17:51:18" },

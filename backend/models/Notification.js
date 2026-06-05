@@ -35,7 +35,7 @@ const notificationSchema = new mongoose.Schema({
     timestamps: true  // adds createdAt, updatedAt
 });
 
-// Compound index for the primary query pattern (Stage 3 optimization)
+// Compound index for the primary query pattern
 notificationSchema.index({ isRead: 1, type: 1, timestamp: -1 });
 
 module.exports = mongoose.model('Notification', notificationSchema);

@@ -79,7 +79,7 @@ async function fetchAndSync(params = {}) {
     return notifications;
 }
 
-// ─── Fallback mock data (from assessment screenshot) ─────────────
+// ─── Fallback mock data ─────────────
 function getMockNotifications() {
     return [
         { ID: 'd146095a-0d86-4a34-9e69-3900a14576bc', Type: 'Result',    Message: 'mid-sem',                            Timestamp: '2026-04-22 17:51:30' },
@@ -107,7 +107,7 @@ function formatNotification(n, readOverride) {
             isRead: n.isRead
         };
     }
-    // From external API / mock
+    // From external API / memory
     return { ...n, isRead: readOverride !== undefined ? readOverride : false };
 }
 
@@ -198,7 +198,7 @@ router.get('/priority', async (req, res) => {
             notifications = notifications.filter(n => n.Type === notification_type);
         }
 
-        // Priority sort: Weight DESC, then Timestamp DESC (Stage 6 algorithm)
+        // Priority sort: Weight DESC, then Timestamp DESC
         notifications.sort((a, b) => {
             const wA = TYPE_WEIGHT[a.Type] || 0;
             const wB = TYPE_WEIGHT[b.Type] || 0;
