@@ -1,4 +1,4 @@
-const logger = require('../logger');
+const { logger } = require('../backend/middleware/logger');
 
 // Weight mappings for priority calculation
 const TYPE_WEIGHT = {

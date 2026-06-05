@@ -15,7 +15,7 @@ const express = require('express');
 const fetch = require('node-fetch');
 const mongoose = require('mongoose');
 const NotificationModel = require('./models/Notification');
-const { logger } = require('./logger');
+const { logger } = require('./middleware/logger');
 
 const router = express.Router();
 

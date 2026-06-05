@@ -10,7 +10,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const { logger, loggingMiddleware } = require('./logger');
+const { logger, loggingMiddleware } = require('./middleware/logger');
 const { connectDB } = require('./db');
 const notificationRoutes = require('./routes');
 

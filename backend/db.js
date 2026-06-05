@@ -4,7 +4,7 @@
  */
 
 const mongoose = require('mongoose');
-const { logger } = require('./logger');
+const { logger } = require('./middleware/logger');
 
 async function connectDB() {
     const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/affordmed_notifications';
